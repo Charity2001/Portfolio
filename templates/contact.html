@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Me - Bombi</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script>
+    // Toggle dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // Load theme on page load
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f7f7f7;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+
+    .contact-item {
+      margin: 10px 0;
+    }
+
+    .toggle-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      background-color: #6a4caf;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .toggle-btn:hover {
+      background-color: #5a3c9f;
+    }
+
+    a {
+      color: #0077cc;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📬 Contact Me</h1>
+
+  <div class="contact-item"><span class="icon">📍</span>Riverside View, Chestnut Street</div>
+  <div class="contact-item"><span class="icon">📞</span><a href="tel:+27612426569">+27 61 242 6569</a></div>
+  <div class="contact-item"><span class="icon">📧</span><a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></div>
+  <div class="contact-item"><span class="icon">💻</span><a href="https://github.com/Charity2001" target="_blank">My GitHub Profile</a></div>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome - Bombi Tsatsawane Charity</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #5a189a;
+    }
+    a {
+      display: inline-block;
+      margin: 10px 0;
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    // Toggle dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // Load theme on page load
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    };
+  </script>
+<body>
+
+  <!-- ✅ Profile Image -->
+  <img src="/static/IMG_1774.jpeg" alt="Bombi Tsatsawane Charity">
+
+  <h1>Hello, I'm Bombi Tsatsawane Charity</h1>
+
+  <p>I’m 24 years old and I hold an NQF 8 from the University of Venda in Bachelor of Indigenous Knowledge Systems, majoring in Health Care Systems.</p>
+
+  <p>I’m currently pursuing an NQF 6 qualification in Software Engineering at <strong>WeThinkCode_</strong>, growing rapidly in the tech space.</p>
+
+  <p>My practical skills include Python, Java, HTML, CSS, and SQL. I’m also comfortable working with Linux, VS Code, and Flask for web development.</p>
+
+  <p>I’m a hardworking and fast-learning individual with a passion for building solutions and telling stories through code. As a girl in tech, I love inspiring others and being part of a growing tech community.</p>
+
+  <a href="/projects">🛠 View My Projects</a><br>
+  <a href="/contact">📬 Contact Me</a>
+
+</body>
+</html>
