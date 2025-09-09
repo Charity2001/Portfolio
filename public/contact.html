@@ -37,8 +37,42 @@
         }
     </style>
     
-    <!-- Farcaster Mini App SDK -->
-    <script type="module" src="/page.js"></script>
+    <!-- Farcaster Mini App SDK - Inline Implementation -->
+    <script type="module">
+        // Import SDK using CDN as recommended by Farcaster documentation
+        import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+        
+        // Initialize the Mini App
+        async function initMiniApp() {
+            try {
+                console.log('Initializing Mini App...');
+                
+                // Wait for the page to be fully loaded
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', ready);
+                } else {
+                    ready();
+                }
+            } catch (error) {
+                console.error('Error initializing Mini App:', error);
+                ready();
+            }
+        }
+        
+        async function ready() {
+            try {
+                console.log('Calling sdk.actions.ready()...');
+                // After your app is fully loaded and ready to display
+                await sdk.actions.ready();
+                console.log('Mini App is ready and displayed!');
+            } catch (error) {
+                console.error('Error calling sdk.actions.ready():', error);
+            }
+        }
+        
+        // Initialize the Mini App when the script loads
+        initMiniApp();
+    </script>
 </head>
 <body>
     <h1>📬 Contact Me</h1>

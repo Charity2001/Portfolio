@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Projects - Bombi Tsatsawane</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App Test</title>
     
     <!-- Farcaster Meta Tags -->
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="fc:frame:button:1" content="Back to Home" />
-    <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
-    <meta property="og:title" content="My Projects - Bombi Tsatsawane" />
-    <meta property="og:description" content="Check out my projects including Toy Robot Simulator, Student Info Portal, and Personal Portfolio Website." />
+    <meta property="og:title" content="Mini App Test" />
+    <meta property="og:description" content="Testing Mini App functionality" />
     <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/projects.html" />
     
     <style>
         body {
@@ -22,12 +19,16 @@
             background-color: #f7f7f7;
             color: #333;
         }
-        a {
-            color: #0077cc;
-            text-decoration: none;
+        .status {
+            padding: 20px;
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            margin: 20px 0;
         }
-        a:hover {
-            text-decoration: underline;
+        .error {
+            background-color: #ffeaea;
+            border-color: #f44336;
         }
     </style>
     
@@ -40,6 +41,7 @@
         async function initMiniApp() {
             try {
                 console.log('Initializing Mini App...');
+                updateStatus('Initializing Mini App...', false);
                 
                 // Wait for the page to be fully loaded
                 if (document.readyState === 'loading') {
@@ -49,6 +51,7 @@
                 }
             } catch (error) {
                 console.error('Error initializing Mini App:', error);
+                updateStatus('Error initializing Mini App: ' + error.message, true);
                 ready();
             }
         }
@@ -56,11 +59,23 @@
         async function ready() {
             try {
                 console.log('Calling sdk.actions.ready()...');
+                updateStatus('Calling sdk.actions.ready()...', false);
+                
                 // After your app is fully loaded and ready to display
                 await sdk.actions.ready();
                 console.log('Mini App is ready and displayed!');
+                updateStatus('Mini App is ready and displayed! ✅', false);
             } catch (error) {
                 console.error('Error calling sdk.actions.ready():', error);
+                updateStatus('Error calling sdk.actions.ready(): ' + error.message, true);
+            }
+        }
+        
+        function updateStatus(message, isError) {
+            const statusDiv = document.getElementById('status');
+            if (statusDiv) {
+                statusDiv.textContent = message;
+                statusDiv.className = isError ? 'status error' : 'status';
             }
         }
         
@@ -69,12 +84,14 @@
     </script>
 </head>
 <body>
-    <h1>My Projects</h1>
-    <ul>
-        <li><strong>Toy Robot Simulator</strong> – A simulation app using Python OOP principles</li>
-        <li><strong>Student Info Portal</strong> – Built with Java and SQL for managing student data</li>
-        <li><strong>Personal Portfolio Website</strong> – This very site, made with Flask, HTML & CSS</li>
-    </ul>
+    <h1>Mini App Test Page</h1>
+    
+    <div id="status" class="status">Loading...</div>
+    
+    <p>This page tests the Farcaster Mini App SDK functionality.</p>
+    
+    <p>Check the browser console for detailed logs.</p>
+    
     <a href="/">← Back to Home</a>
 </body>
 </html>
