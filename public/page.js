@@ -1,4 +1,5 @@
-import { sdk } from 'https://unpkg.com/@farcaster/miniapp-sdk@latest/dist/index.js';
+// Import SDK using CDN as recommended by Farcaster documentation
+import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
 
 // Initialize the Mini App
 async function initMiniApp() {
