@@ -2,30 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
-      "use": "@vercel/python"
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/.well-known/farcaster.json",
-      "dest": "/public/.well-known/farcaster.json"
-    },
-    {
-      "src": "/icon.png",
-      "dest": "/public/icon.png"
-    },
-    {
-      "src": "/image.png",
-      "dest": "/public/image.png"
-    },
-    {
-      "src": "/splash.png",
-      "dest": "/public/splash.png"
-    },
-    {
       "src": "/(.*)",
-      "dest": "app.py"
+      "dest": "/public/$1"
     }
   ]
 }
