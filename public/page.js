@@ -1,4 +1,4 @@
-import { sdk } from '@farcaster/miniapp-sdk'
+import { sdk } from 'https://unpkg.com/@farcaster/miniapp-sdk@latest/dist/index.js';
 
 // Initialize the Mini App
 async function initMiniApp() {
