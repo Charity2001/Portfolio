@@ -11,10 +11,5 @@
     "subtitle": "tech girl",
     "description": "this is a portfolio for my soft and technical skills and education",
     "primaryCategory": "developer-tools"
-  },
-  "accountAssociation": {
-    "header": "X-Farcaster-Account-Association",
-    "payload": "eyJ1cmwiOiJodHRwczovL3BvcnRmb2xpby10YXUtc2VsZi04Mi52ZXJjZWwuYXBwIn0=",
-    "signature": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12"
   }
 }
