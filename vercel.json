@@ -1,5 +1,15 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
-    { "src": "/.well-known/farcaster.json", "dest": "/.well-known/farcaster.json" }
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
   ]
 }

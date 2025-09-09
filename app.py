@@ -188,3 +188,6 @@ def serve_splash():
 # 5️⃣ Run the app
 if __name__ == '__main__':
     app.run(debug=True)
+
+# For Vercel deployment
+app = app
