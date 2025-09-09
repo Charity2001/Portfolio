@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, redirect
+import os
 import sqlite3
 
 app = Flask(__name__)
 
 # 1️⃣ Create a database with a table (only runs once)
 def init_db():
-    with sqlite3.connect("database.db") as conn:
+    db_path = os.environ.get("VERCEL", None)
+    # Use ephemeral /tmp storage on Vercel; default to local file otherwise
+    database_file = "/tmp/database.db" if db_path is not None else "database.db"
+    with sqlite3.connect(database_file) as conn:
         conn.execute("""
             CREATE TABLE IF NOT EXISTS messages (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,7 +40,9 @@ def contact():
         name = request.form['name']
         email = request.form['email']
         message = request.form['message']
-        with sqlite3.connect("database.db") as conn:
+        db_path = os.environ.get("VERCEL", None)
+        database_file = "/tmp/database.db" if db_path is not None else "database.db"
+        with sqlite3.connect(database_file) as conn:
             conn.execute("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)",
                          (name, email, message))
         return redirect('/')  # Redirect to home after sending
