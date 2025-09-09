@@ -55,6 +55,19 @@ def farcaster_manifest():
     except FileNotFoundError:
         return jsonify({"error": "Manifest not found"}), 404
 
+# 5️⃣ Serve Farcaster images
+@app.route('/icon.png')
+def serve_icon():
+    return app.send_static_file('IMG_1774.jpeg')
+
+@app.route('/image.png')
+def serve_image():
+    return app.send_static_file('IMG_1774.jpeg')
+
+@app.route('/splash.png')
+def serve_splash():
+    return app.send_static_file('IMG_1774.jpeg')
+
 # 5️⃣ Run the app
 if __name__ == '__main__':
     app.run(debug=True)
