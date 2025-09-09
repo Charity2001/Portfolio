@@ -1,0 +1,15 @@
+{
+  "frame": {
+    "name": "portfolio",
+    "version": "1",
+    "iconUrl": "https://portfolio-tau-self-82.vercel.app/icon.png",
+    "homeUrl": "https://portfolio-tau-self-82.vercel.app",
+    "imageUrl": "https://portfolio-tau-self-82.vercel.app/image.png",
+    "splashImageUrl": "https://portfolio-tau-self-82.vercel.app/splash.png",
+    "splashBackgroundColor": "#6200EA",
+    "webhookUrl": "https://portfolio-tau-self-82.vercel.app/api/webhook",
+    "subtitle": "tech girl",
+    "description": "this is a portfolio for my soft  and technical skills and education ",
+    "primaryCategory": "developer-tools"
+  }
+}
