@@ -51,38 +51,7 @@
     </style>
     
     <!-- Farcaster Mini App SDK -->
-    <script type="module">
-        import { sdk } from 'https://unpkg.com/@farcaster/miniapp-sdk@latest/dist/index.js';
-        
-        // Initialize the Mini App
-        async function initMiniApp() {
-            try {
-                // Wait for the page to be fully loaded
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', ready);
-                } else {
-                    ready();
-                }
-            } catch (error) {
-                console.error('Error initializing Mini App:', error);
-                // Even if there's an error, try to call ready to prevent infinite loading
-                ready();
-            }
-        }
-        
-        async function ready() {
-            try {
-                // Call ready() to hide the splash screen and display content
-                await sdk.actions.ready();
-                console.log('Mini App is ready and displayed');
-            } catch (error) {
-                console.error('Error calling sdk.actions.ready():', error);
-            }
-        }
-        
-        // Initialize the Mini App
-        initMiniApp();
-    </script>
+    <script type="module" src="/page.ts"></script>
 </head>
 <body>
     <img src="/image.png" alt="Bombi Tsatsawane Charity">
