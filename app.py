@@ -95,40 +95,7 @@ def account_association():
     
     return jsonify(response_data)
 
-# 8️⃣ Farcaster manifest endpoint
-@app.route('/.well-known/farcaster.json')
-def farcaster_manifest():
-    try:
-        # Generate fresh account association data
-        payload = generate_account_association_payload()
-        signature = generate_account_association_signature(payload)
-        
-        # Create manifest data directly
-        manifest_data = {
-            "frame": {
-                "name": "portfolio",
-                "version": "1",
-                "iconUrl": "https://portfolio-tau-self-82.vercel.app/icon.png",
-                "homeUrl": "https://portfolio-tau-self-82.vercel.app",
-                "imageUrl": "https://portfolio-tau-self-82.vercel.app/image.png",
-                "splashImageUrl": "https://portfolio-tau-self-82.vercel.app/splash.png",
-                "splashBackgroundColor": "#6200EA",
-                "webhookUrl": "https://portfolio-tau-self-82.vercel.app/api/webhook",
-                "subtitle": "tech girl",
-                "description": "this is a portfolio for my soft and technical skills and education",
-                "primaryCategory": "developer-tools"
-            },
-            "accountAssociation": {
-                "header": "X-Farcaster-Account-Association",
-                "payload": payload,
-                "signature": signature
-            }
-        }
-        
-        return jsonify(manifest_data)
-    except Exception as e:
-        print(f"Manifest error: {e}")
-        return jsonify({"error": "Manifest generation failed"}), 500
+# 8️⃣ Farcaster manifest endpoint (now served statically by Vercel)
 
 # 9️⃣ Farcaster Webhook Endpoint
 @app.route('/api/webhook', methods=['POST'])
@@ -194,18 +161,7 @@ def farcaster_webhook():
         print(f"Webhook error: {e}")
         return jsonify({"error": "Webhook processing failed"}), 500
 
-# 🔟 Serve Farcaster images
-@app.route('/icon.png')
-def serve_icon():
-    return app.send_static_file('IMG_1774.jpeg')
-
-@app.route('/image.png')
-def serve_image():
-    return app.send_static_file('IMG_1774.jpeg')
-
-@app.route('/splash.png')
-def serve_splash():
-    return app.send_static_file('IMG_1774.jpeg')
+# 🔟 Farcaster images (now served statically by Vercel)
 
 # 5️⃣ Run the app
 if __name__ == '__main__':

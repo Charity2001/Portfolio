@@ -8,6 +8,22 @@
   ],
   "routes": [
     {
+      "src": "/.well-known/farcaster.json",
+      "dest": "/.well-known/farcaster.json"
+    },
+    {
+      "src": "/icon.png",
+      "dest": "/icon.png"
+    },
+    {
+      "src": "/image.png",
+      "dest": "/image.png"
+    },
+    {
+      "src": "/splash.png",
+      "dest": "/splash.png"
+    },
+    {
       "src": "/(.*)",
       "dest": "app.py"
     }
