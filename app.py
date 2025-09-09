@@ -23,7 +23,7 @@ def home():
 
 # 3️⃣ Projects page
 @app.route('/projects')
-def projets():
+def projects():
     projects = [
         {"name": "Project 1", "description": "Description of Project 1"},
         {"name": "Project 2", "description": "Description of Project 2"},
