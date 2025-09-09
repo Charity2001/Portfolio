@@ -34,6 +34,14 @@ init_db()
 def test():
     return jsonify({"status": "ok", "message": "Flask app is working"})
 
+# 2.5️⃣ Test manifest endpoint
+@app.route('/test-manifest')
+def test_manifest():
+    return jsonify({
+        "message": "Manifest should be available at /.well-known/farcaster.json",
+        "static_file": "Served from /public/.well-known/farcaster.json"
+    })
+
 # 3️⃣ Home page
 @app.route('/')
 def home():
@@ -96,6 +104,7 @@ def account_association():
     return jsonify(response_data)
 
 # 8️⃣ Farcaster manifest endpoint (now served statically by Vercel)
+# The manifest is served from /public/.well-known/farcaster.json
 
 # 9️⃣ Farcaster Webhook Endpoint
 @app.route('/api/webhook', methods=['POST'])
