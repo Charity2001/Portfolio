@@ -36,6 +36,36 @@
             text-decoration: underline;
         }
     </style>
+    
+    <!-- Farcaster Mini App SDK -->
+    <script type="module">
+        import { sdk } from 'https://unpkg.com/@farcaster/miniapp-sdk@latest/dist/index.js';
+        
+        // Initialize the Mini App
+        async function initMiniApp() {
+            try {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', ready);
+                } else {
+                    ready();
+                }
+            } catch (error) {
+                console.error('Error initializing Mini App:', error);
+                ready();
+            }
+        }
+        
+        async function ready() {
+            try {
+                await sdk.actions.ready();
+                console.log('Mini App is ready and displayed');
+            } catch (error) {
+                console.error('Error calling sdk.actions.ready():', error);
+            }
+        }
+        
+        initMiniApp();
+    </script>
 </head>
 <body>
     <h1>📬 Contact Me</h1>
