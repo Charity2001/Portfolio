@@ -9,8 +9,11 @@ import time
 
 app = Flask(__name__)
 
+# Configure Flask for production
+app.config['DEBUG'] = False
+
 # Mini App Toolkit Configuration
-MINI_APP_SECRET = "your-secret-key-here"  # In production, use environment variable
+MINI_APP_SECRET = os.environ.get('MINI_APP_SECRET', 'default-secret-key-for-development')
 MINI_APP_URL = "https://portfolio-tau-self-82.vercel.app"
 
 # 1️⃣ Create a database with a table (only runs once)
@@ -26,12 +29,17 @@ def init_db():
         """)
 init_db()
 
-# 2️⃣ Home page
+# 2️⃣ Test endpoint
+@app.route('/test')
+def test():
+    return jsonify({"status": "ok", "message": "Flask app is working"})
+
+# 3️⃣ Home page
 @app.route('/')
 def home():
     return render_template("index.html")
 
-# 3️⃣ Projects page
+# 4️⃣ Projects page
 @app.route('/projects')
 def projects():
     projects = [
@@ -40,6 +48,8 @@ def projects():
         {"name": "Project 3", "description": "Description of Project 3"}
     ]
     return render_template("projects.html", projects=projects)
+
+# 5️⃣ Contact page
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -52,7 +62,7 @@ def contact():
         return redirect('/')  # Redirect to home after sending
     return render_template("contact.html")
 
-# 4️⃣ Mini App Toolkit Functions
+# 6️⃣ Mini App Toolkit Functions
 def generate_account_association_payload():
     """Generate account association payload for Farcaster"""
     payload = {
@@ -70,7 +80,7 @@ def generate_account_association_signature(payload):
     ).hexdigest()
     return f"0x{signature}"
 
-# 5️⃣ Account Association Endpoint
+# 7️⃣ Account Association Endpoint
 @app.route('/api/account-association')
 def account_association():
     """Handle Farcaster account association"""
@@ -85,30 +95,42 @@ def account_association():
     
     return jsonify(response_data)
 
-# 6️⃣ Farcaster manifest endpoint
+# 8️⃣ Farcaster manifest endpoint
 @app.route('/.well-known/farcaster.json')
 def farcaster_manifest():
-    manifest_path = os.path.join('.well-known', 'farcaster.json')
     try:
-        with open(manifest_path, 'r') as f:
-            manifest_data = json.load(f)
-        
         # Generate fresh account association data
         payload = generate_account_association_payload()
         signature = generate_account_association_signature(payload)
         
-        # Update manifest with fresh account association
-        manifest_data["accountAssociation"] = {
-            "header": "X-Farcaster-Account-Association",
-            "payload": payload,
-            "signature": signature
+        # Create manifest data directly
+        manifest_data = {
+            "frame": {
+                "name": "portfolio",
+                "version": "1",
+                "iconUrl": "https://portfolio-tau-self-82.vercel.app/icon.png",
+                "homeUrl": "https://portfolio-tau-self-82.vercel.app",
+                "imageUrl": "https://portfolio-tau-self-82.vercel.app/image.png",
+                "splashImageUrl": "https://portfolio-tau-self-82.vercel.app/splash.png",
+                "splashBackgroundColor": "#6200EA",
+                "webhookUrl": "https://portfolio-tau-self-82.vercel.app/api/webhook",
+                "subtitle": "tech girl",
+                "description": "this is a portfolio for my soft and technical skills and education",
+                "primaryCategory": "developer-tools"
+            },
+            "accountAssociation": {
+                "header": "X-Farcaster-Account-Association",
+                "payload": payload,
+                "signature": signature
+            }
         }
         
         return jsonify(manifest_data)
-    except FileNotFoundError:
-        return jsonify({"error": "Manifest not found"}), 404
+    except Exception as e:
+        print(f"Manifest error: {e}")
+        return jsonify({"error": "Manifest generation failed"}), 500
 
-# 7️⃣ Farcaster Webhook Endpoint
+# 9️⃣ Farcaster Webhook Endpoint
 @app.route('/api/webhook', methods=['POST'])
 def farcaster_webhook():
     """Handle Farcaster webhook interactions"""
@@ -172,7 +194,7 @@ def farcaster_webhook():
         print(f"Webhook error: {e}")
         return jsonify({"error": "Webhook processing failed"}), 500
 
-# 8️⃣ Serve Farcaster images
+# 🔟 Serve Farcaster images
 @app.route('/icon.png')
 def serve_icon():
     return app.send_static_file('IMG_1774.jpeg')
