@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory
 import sqlite3
+import os
 
 app = Flask(__name__)
 
@@ -41,6 +42,15 @@ def contact():
                          (name, email, message))
         return redirect('/')  # Redirect to home after sending
     return render_template("contact.html")
+
+# 4️⃣ Farcaster manifest route
+@app.route('/.well-known/farcaster.json')
+def farcaster_manifest():
+    return send_from_directory(
+        os.path.join(app.root_path, '.well-known'),
+        'farcaster.json',
+        mimetype='application/json'
+    )
 
 # 5️⃣ Run the app
 if __name__ == '__main__':
