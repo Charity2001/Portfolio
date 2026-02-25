@@ -2,86 +2,349 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome - Bombi Tsatsawane Charity</title>
-  
+  <title>Charity Tsatsawane | Software Engineering Portfolio</title>
+
   <!-- Farcaster Meta Tags -->
   <meta property="fc:frame" content="vNext" />
-  <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
   <meta property="fc:frame:button:1" content="View Projects" />
   <meta property="fc:frame:button:1:action" content="link" />
   <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app/projects" />
   <meta property="fc:frame:button:2" content="Contact Me" />
   <meta property="fc:frame:button:2:action" content="link" />
   <meta property="fc:frame:button:2:target" content="https://portfolio-tau-self-82.vercel.app/contact" />
-  <meta property="og:title" content="Bombi Tsatsawane Charity - Portfolio" />
-  <meta property="og:description" content="Tech girl passionate about building solutions and telling stories through code. Software Engineering student at WeThinkCode_." />
-  <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Charity Tsatsawane - Software Engineering Portfolio" />
+  <meta property="og:description" content="Software Engineering graduate and aspiring AI engineer passionate about backend, data and intelligent systems." />
   <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bombi Tsatsawane Charity - Portfolio" />
-  <meta name="twitter:description" content="Tech girl passionate about building solutions and telling stories through code." />
-  <meta name="twitter:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-  
-  <link rel="stylesheet" href="/static/style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      color: #5a189a;
-    }
-    a {
-      display: inline-block;
-      margin: 10px 0;
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <script>
-    // Toggle dark mode
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
+  <meta name="twitter:title" content="Charity Tsatsawane - Software Engineering Portfolio" />
+  <meta name="twitter:description" content="Backend-focused Software Engineering graduate building intelligent, data-driven solutions." />
 
-    // Load theme on page load
-    window.onload = () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-    };
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-mark">CT</span>
+        <div class="brand-copy">
+          <span class="brand-name">Charity Tsatsawane</span>
+          <span class="brand-role">Software Engineering Graduate</span>
+        </div>
+      </div>
 
-  <!-- ✅ Profile Image -->
-  <img src="/static/IMG_1774.jpeg" alt="Bombi Tsatsawane Charity">
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-  <h1>Hello, I'm Bombi Tsatsawane Charity</h1>
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="section hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Johannesburg • South Africa</p>
+          <h1>Software Engineering Graduate &amp; Aspiring AI Engineer</h1>
+          <p class="hero-subtitle">
+            I design and build reliable backend, AI and data-driven solutions using
+            Java, Python and modern web technologies.
+          </p>
 
-  <p>I’m 24 years old and I hold an NQF 8 from the University of Venda in Bachelor of Indigenous Knowledge Systems, majoring in Health Care Systems.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/static/Charity_Tsatsawane_CV.pdf" target="_blank" rel="noopener">
+              Download CV
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Charity2001" target="_blank" rel="noopener">
+              View GitHub
+            </a>
+            <a class="btn-text" href="#contact">
+              Contact Me →
+            </a>
+          </div>
 
-  <p>I’m currently pursuing an NQF 6 qualification in Software Engineering at <strong>WeThinkCode_</strong>, growing rapidly in the tech space.</p>
+          <div class="hero-meta">
+            <span>Open to: Internships • Graduate Programmes • Junior Roles</span>
+            <span>Focus: Backend · AI · Data · Full‑Stack</span>
+          </div>
+        </div>
 
-  <p>My practical skills include Python, Java, HTML, CSS, and SQL. I’m also comfortable working with Linux, VS Code, and Flask for web development.</p>
+        <div class="hero-panel">
+          <div class="hero-card">
+            <h2>Profile Snapshot</h2>
+            <ul>
+              <li><strong>Languages:</strong> Java, Python, SQL, HTML, CSS, JavaScript (basic)</li>
+              <li><strong>Strengths:</strong> Backend development, problem solving, client‑server systems</li>
+              <li><strong>Interests:</strong> Artificial Intelligence, data analytics, full‑stack engineering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>I’m a hardworking and fast-learning individual with a passion for building solutions and telling stories through code. As a girl in tech, I love inspiring others and being part of a growing tech community.</p>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="shell section-grid">
+        <div>
+          <h2>About Me</h2>
+          <p>
+            I am a Software Engineering graduate from <strong>WeThinkCode_</strong> with a strong foundation
+            in Java, Python, SQL and web technologies. I enjoy designing clean architectures, implementing
+            robust backend services and turning ideas into working software.
+          </p>
+          <p>
+            I also hold a Bachelor of Indigenous Knowledge Systems from the
+            <strong>University of Venda</strong> (NQF Level 8), which has sharpened my research,
+            analytical and critical thinking skills. This unique background helps me approach problems
+            from both a technical and human‑centred perspective.
+          </p>
+          <p>
+            I am actively seeking opportunities where I can grow into a world‑class Software Engineer,
+            contribute to impactful products and collaborate with teams building intelligent, scalable systems.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="badge-card">
+            <span class="badge-label">Availability</span>
+            <p>Ready for Software Engineering internships, graduate programmes and junior roles.</p>
+          </div>
+          <div class="badge-card">
+            <span class="badge-label">Career Focus</span>
+            <p>Backend engineering, AI‑driven applications, data analytics and full‑stack development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <a href="/projects">🛠 View My Projects</a><br>
-  <a href="/contact">📬 Contact Me</a>
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="shell">
+        <h2>Technical Skills</h2>
+        <div class="chip-groups">
+          <div>
+            <h3>Languages</h3>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript (basic)</span>
+            </div>
+          </div>
+          <div>
+            <h3>Tools &amp; Platforms</h3>
+            <div class="chips">
+              <span class="chip">Git</span>
+              <span class="chip">GitHub</span>
+              <span class="chip">Linux</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">IntelliJ IDEA</span>
+              <span class="chip">Azure AI</span>
+            </div>
+          </div>
+          <div>
+            <h3>Concepts</h3>
+            <div class="chips">
+              <span class="chip">Object‑Oriented Programming</span>
+              <span class="chip">Client‑Server Architecture</span>
+              <span class="chip">REST principles</span>
+              <span class="chip">JSON</span>
+              <span class="chip">Socket Programming</span>
+              <span class="chip">Unit Testing</span>
+              <span class="chip">Test‑Driven Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="shell">
+        <div class="section-header-row">
+          <h2>Selected Projects</h2>
+          <a class="btn-text" href="/projects">View detailed project list →</a>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Robot World (Java)</h3>
+            <p class="card-meta">Java • Sockets • JSON • Multi‑threading</p>
+            <p>
+              Client‑server robot simulation that supports multiple concurrent clients over sockets,
+              using a JSON protocol for commands such as <em>look</em>, <em>move</em> and <em>turn</em>.
+            </p>
+            <ul class="card-list">
+              <li>Implemented multi‑threaded server handling concurrent robot sessions.</li>
+              <li>Designed a clear JSON contract between client and server.</li>
+              <li>Applied OOP principles to model robots, worlds and commands.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>AI Mental Health Chatbot</h3>
+            <p class="card-meta">Azure AI • Python • Hackathon Project</p>
+            <p>
+              AI‑powered chatbot that provides mental health support and guidance to users, built during
+              an AI hackathon using Azure AI services.
+            </p>
+            <ul class="card-list">
+              <li>Integrated Azure AI for natural language understanding.</li>
+              <li>Designed conversational flows focused on empathy and safety.</li>
+              <li>Collaborated in a small team under tight hackathon timelines.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Data Analysis &amp; Visualisation</h3>
+            <p class="card-meta">Python • Pandas • Matplotlib</p>
+            <p>
+              Performed end‑to‑end data analysis to extract insights and communicate findings through
+              clear visualisations.
+            </p>
+            <ul class="card-list">
+              <li>Cleaned, transformed and analysed datasets with Pandas.</li>
+              <li>Built visualisations to highlight trends and key metrics.</li>
+              <li>Summarised results in a concise, decision‑focused narrative.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p class="card-meta">HTML • CSS • GitHub Pages</p>
+            <p>
+              Responsive portfolio site showcasing my projects, skills and experience, designed for
+              recruiters and hiring managers.
+            </p>
+            <ul class="card-list">
+              <li>Implemented a clean, mobile‑first layout with modern styling.</li>
+              <li>Optimised content for readability and recruiter workflows.</li>
+              <li>Deployed and maintained on GitHub Pages.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Experience -->
+    <section class="section section-alt">
+      <div class="shell section-grid">
+        <div>
+          <h2>AI &amp; Data Experience</h2>
+          <p>
+            I am particularly excited about applying AI and data to solve meaningful problems. From
+            building an AI mental health chatbot to exploring data analysis with Python, I enjoy
+            connecting algorithms with real‑world impact.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="badge-card">
+            <span class="badge-label">Microsoft AI Fluency</span>
+            <p>Completed the Microsoft AI Fluency certificate, covering core AI concepts, responsible AI and practical use cases.</p>
+          </div>
+          <div class="badge-card">
+            <span class="badge-label">AI Projects</span>
+            <p>Azure‑powered mental health chatbot and exploratory data analysis projects using Python, Pandas and Matplotlib.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="shell">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Diploma in Software Engineering</h3>
+              <p class="timeline-meta">WeThinkCode_ • Completed</p>
+              <p>
+                Intensive, project‑based programme focused on Java, Python, databases, client‑server
+                applications and real‑world software engineering practices.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Bachelor of Indigenous Knowledge Systems (NQF Level 8)</h3>
+              <p class="timeline-meta">University of Venda • Major: Health Care Systems • Completed</p>
+              <p>
+                Developed strong research, analytical and problem‑solving skills with a focus on
+                community‑centred and interdisciplinary approaches.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Goals -->
+    <section class="section section-alt">
+      <div class="shell">
+        <h2>Career Goals</h2>
+        <p>
+          In the next few years, I aim to grow into a trusted Software Engineer who can own
+          backend services, collaborate across disciplines and contribute to AI‑enabled products.
+          I am looking for environments where I can learn from experienced engineers, ship
+          production‑ready code and make a measurable impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="shell section-grid">
+        <div>
+          <h2>Let’s Connect</h2>
+          <p>
+            If you’re hiring for Software Engineering internships, graduate programmes or junior
+            roles, I’d love to hear from you.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Location:</strong> Johannesburg, South Africa</li>
+            <li><strong>Email:</strong> <a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+27612426569">+27 61 242 6569</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Charity2001" target="_blank" rel="noopener">github.com/Charity2001</a></li>
+          </ul>
+        </div>
+        <div class="contact-cta">
+          <div class="badge-card">
+            <span class="badge-label">Next Step</span>
+            <p>Let’s talk about how I can add value to your engineering team.</p>
+            <a class="btn btn-primary" href="mailto:bombitsatsawane@gmail.com">Email Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <span>© {{ 2026 }} Charity Tsatsawane</span>
+      <span>Built with Python, HTML &amp; CSS</span>
+    </div>
+  </footer>
 </body>
 </html>

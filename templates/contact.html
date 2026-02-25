@@ -2,89 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Me - Bombi</title>
+  <title>Contact - Charity Tsatsawane</title>
   
   <!-- Farcaster Meta Tags -->
   <meta property="fc:frame" content="vNext" />
-  <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/static/IMG_1774.jpeg" />
   <meta property="fc:frame:button:1" content="Back to Home" />
   <meta property="fc:frame:button:1:action" content="link" />
   <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
   <meta property="og:title" content="Contact Me - Bombi Tsatsawane" />
-  <meta property="og:description" content="Get in touch with me! Find my contact information and connect." />
-  <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/static/IMG_1774.jpeg" />
+  <meta property="og:description" content="Get in touch with Charity Tsatsawane for software engineering opportunities." />
   <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/contact" />
   
   <link rel="stylesheet" href="/static/style.css">
-  <script>
-    // Toggle dark mode
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-    }
-
-    // Load theme on page load
-    window.onload = () => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-    };
-  </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      background-color: #f7f7f7;
-      color: #333;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .dark-mode {
-      background-color: #121212;
-      color: #f5f5f5;
-    }
-
-    .icon {
-      margin-right: 10px;
-    }
-
-    .contact-item {
-      margin: 10px 0;
-    }
-
-    .toggle-btn {
-      margin-top: 20px;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      background-color: #6a4caf;
-      color: white;
-      border-radius: 5px;
-    }
-
-    .toggle-btn:hover {
-      background-color: #5a3c9f;
-    }
-
-    a {
-      color: #0077cc;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
 
-  <h1>📬 Contact Me</h1>
+  <header class="site-header">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-mark">CT</span>
+        <div class="brand-copy">
+          <span class="brand-name">Charity Tsatsawane</span>
+          <span class="brand-role">Software Engineering Graduate</span>
+        </div>
+      </div>
 
-  <div class="contact-item"><span class="icon">📍</span>Riverside View, Chestnut Street</div>
-  <div class="contact-item"><span class="icon">📞</span><a href="tel:+27612426569">+27 61 242 6569</a></div>
-  <div class="contact-item"><span class="icon">📧</span><a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></div>
-  <div class="contact-item"><span class="icon">💻</span><a href="https://github.com/Charity2001" target="_blank">My GitHub Profile</a></div>
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-  <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  <main>
+    <section class="section">
+      <div class="shell section-grid">
+        <div>
+          <h2>Contact Information</h2>
+          <p>
+            I’m currently looking for Software Engineering internships, graduate programmes and
+            junior developer roles. The fastest way to reach me is via email.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Location:</strong> Johannesburg, South Africa</li>
+            <li><strong>Email:</strong> <a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+27612426569">+27 61 242 6569</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Charity2001" target="_blank" rel="noopener">github.com/Charity2001</a></li>
+          </ul>
+        </div>
+        <div class="contact-cta">
+          <div class="badge-card">
+            <span class="badge-label">Let’s talk</span>
+            <p>Share a brief description of the role or project and I’ll respond as soon as possible.</p>
+            <a class="btn btn-primary" href="mailto:bombitsatsawane@gmail.com">Send an email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <span>© {{ 2026 }} Charity Tsatsawane</span>
+      <span>Contact · Open to opportunities</span>
+    </div>
+  </footer>
 
 </body>
 </html>
