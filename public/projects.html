@@ -1,80 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Projects - Bombi Tsatsawane</title>
-    
-    <!-- Farcaster Meta Tags -->
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="fc:frame:button:1" content="Back to Home" />
-    <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
-    <meta property="og:title" content="My Projects - Bombi Tsatsawane" />
-    <meta property="og:description" content="Check out my projects including Toy Robot Simulator, Student Info Portal, and Personal Portfolio Website." />
-    <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/projects.html" />
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f7f7f7;
-            color: #333;
+  <meta charset="UTF-8">
+  <title>Projects - Tsatsawane Bombi (Charity)</title>
+  
+  <!-- Farcaster Meta Tags -->
+  <meta property="fc:frame" content="vNext" />
+  <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
+  <meta property="fc:frame:button:1" content="Back to Home" />
+  <meta property="fc:frame:button:1:action" content="link" />
+  <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
+  <meta property="og:title" content="My Projects - Tsatsawane Bombi" />
+  <meta property="og:description" content="Detailed view of projects by Tsatsawane Bombi (Charity) across backend, AI and data." />
+  <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
+  <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/projects.html" />
+  
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Farcaster Mini App SDK -->
+  <script type="module">
+    import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+
+    async function initMiniApp() {
+      try {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', ready);
+        } else {
+          ready();
         }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    
-    <!-- Farcaster Mini App SDK - Inline Implementation -->
-    <script type="module">
-        // Import SDK using CDN as recommended by Farcaster documentation
-        import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
-        
-        // Initialize the Mini App
-        async function initMiniApp() {
-            try {
-                console.log('Initializing Mini App...');
-                
-                // Wait for the page to be fully loaded
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', ready);
-                } else {
-                    ready();
-                }
-            } catch (error) {
-                console.error('Error initializing Mini App:', error);
-                ready();
-            }
-        }
-        
-        async function ready() {
-            try {
-                console.log('Calling sdk.actions.ready()...');
-                // After your app is fully loaded and ready to display
-                await sdk.actions.ready();
-                console.log('Mini App is ready and displayed!');
-            } catch (error) {
-                console.error('Error calling sdk.actions.ready():', error);
-            }
-        }
-        
-        // Initialize the Mini App when the script loads
-        initMiniApp();
-    </script>
+      } catch (error) {
+        console.error('Error initializing Mini App:', error);
+        ready();
+      }
+    }
+
+    async function ready() {
+      try {
+        await sdk.actions.ready();
+      } catch (error) {
+        console.error('Error calling sdk.actions.ready():', error);
+      }
+    }
+
+    initMiniApp();
+  </script>
+
+  <script src="/static/script.js" defer></script>
 </head>
 <body>
-    <h1>My Projects</h1>
-    <ul>
-        <li><strong>Toy Robot Simulator</strong> – A simulation app using Python OOP principles</li>
-        <li><strong>Student Info Portal</strong> – Built with Java and SQL for managing student data</li>
-        <li><strong>Personal Portfolio Website</strong> – This very site, made with Flask, HTML & CSS</li>
-    </ul>
-    <a href="/">← Back to Home</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-mark">TB</span>
+        <div class="brand-copy">
+          <span class="brand-name">Tsatsawane Bombi (Charity)</span>
+          <span class="brand-role">Software Engineering Graduate</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="section-header-row">
+          <h2>Project Portfolio</h2>
+          <a class="btn-text" href="/">← Back to main portfolio</a>
+        </div>
+
+        <p>
+          A closer look at the projects I’ve built across backend development, AI and data analysis.
+          These projects highlight my ability to design systems, work with real-world constraints and
+          learn new technologies quickly.
+        </p>
+
+        <div class="cards-grid" style="margin-top: 1.8rem;">
+          <article class="card">
+            <h3>Robot World (Java)</h3>
+            <p class="card-meta">Java • Sockets • JSON • Multi‑threading</p>
+            <p>
+              Client‑server robot simulation where multiple players control robots inside a shared world
+              over TCP sockets using a JSON command protocol.
+            </p>
+            <ul class="card-list">
+              <li>Designed and implemented a multi‑threaded server that safely handles concurrent clients.</li>
+              <li>Defined a robust JSON message contract for commands and responses.</li>
+              <li>Applied OOP to separate concerns between networking, world state and command handling.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>AI Mental Health Chatbot</h3>
+            <p class="card-meta">Azure AI • Python • Hackathon</p>
+            <p>
+              Conversational AI assistant that provides mental health support and relevant resources,
+              built during an AI hackathon using Azure AI services.
+            </p>
+            <ul class="card-list">
+              <li>Integrated Azure AI to understand user intent and generate empathetic responses.</li>
+              <li>Collaborated with teammates to design safe, user‑friendly conversation flows.</li>
+              <li>Delivered a working prototype under tight time constraints.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Data Analysis &amp; Visualisation</h3>
+            <p class="card-meta">Python • Pandas • Matplotlib</p>
+            <p>
+              Data analysis project focused on cleaning datasets, exploring patterns and presenting
+              insights through clear visualisations.
+            </p>
+            <ul class="card-list">
+              <li>Used Pandas for data wrangling, filtering and aggregation.</li>
+              <li>Created charts with Matplotlib to communicate trends and outliers.</li>
+              <li>Summarised findings in a concise, actionable narrative.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p class="card-meta">HTML • CSS • GitHub Pages</p>
+            <p>
+              Responsive portfolio site (this website) designed for recruiters and hiring managers,
+              showcasing skills, projects and education.
+            </p>
+            <ul class="card-list">
+              <li>Implemented a modern, dark‑mode friendly UI with smooth scrolling and dark pink theme.</li>
+              <li>Optimised content to be ATS‑aware and recruiter‑friendly.</li>
+              <li>Deployed and maintained on GitHub Pages and Vercel.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <span>© 2026 Tsatsawane Bombi</span>
+      <span>Projects · Backend · AI · Data</span>
+    </div>
+  </footer>
+
 </body>
 </html>

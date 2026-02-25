@@ -1,88 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact Me - Bombi</title>
-    
-    <!-- Farcaster Meta Tags -->
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="fc:frame:button:1" content="Back to Home" />
-    <meta property="fc:frame:button:1:action" content="link" />
-    <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
-    <meta property="og:title" content="Contact Me - Bombi Tsatsawane" />
-    <meta property="og:description" content="Get in touch with me! Find my contact information and connect." />
-    <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
-    <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/contact.html" />
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 30px;
-            background-color: #f7f7f7;
-            color: #333;
+  <meta charset="UTF-8">
+  <title>Contact - Tsatsawane Bombi (Charity)</title>
+  
+  <!-- Farcaster Meta Tags -->
+  <meta property="fc:frame" content="vNext" />
+  <meta property="fc:frame:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
+  <meta property="fc:frame:button:1" content="Back to Home" />
+  <meta property="fc:frame:button:1:action" content="link" />
+  <meta property="fc:frame:button:1:target" content="https://portfolio-tau-self-82.vercel.app" />
+  <meta property="og:title" content="Contact Me - Tsatsawane Bombi" />
+  <meta property="og:description" content="Get in touch with Tsatsawane Bombi (Charity) for software engineering opportunities." />
+  <meta property="og:image" content="https://portfolio-tau-self-82.vercel.app/image.png" />
+  <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/contact.html" />
+  
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Farcaster Mini App SDK -->
+  <script type="module">
+    import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
+
+    async function initMiniApp() {
+      try {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', ready);
+        } else {
+          ready();
         }
-        .contact-item {
-            margin: 10px 0;
-        }
-        .icon {
-            margin-right: 10px;
-        }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    
-    <!-- Farcaster Mini App SDK - Inline Implementation -->
-    <script type="module">
-        // Import SDK using CDN as recommended by Farcaster documentation
-        import { sdk } from 'https://esm.sh/@farcaster/miniapp-sdk';
-        
-        // Initialize the Mini App
-        async function initMiniApp() {
-            try {
-                console.log('Initializing Mini App...');
-                
-                // Wait for the page to be fully loaded
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', ready);
-                } else {
-                    ready();
-                }
-            } catch (error) {
-                console.error('Error initializing Mini App:', error);
-                ready();
-            }
-        }
-        
-        async function ready() {
-            try {
-                console.log('Calling sdk.actions.ready()...');
-                // After your app is fully loaded and ready to display
-                await sdk.actions.ready();
-                console.log('Mini App is ready and displayed!');
-            } catch (error) {
-                console.error('Error calling sdk.actions.ready():', error);
-            }
-        }
-        
-        // Initialize the Mini App when the script loads
-        initMiniApp();
-    </script>
+      } catch (error) {
+        console.error('Error initializing Mini App:', error);
+        ready();
+      }
+    }
+
+    async function ready() {
+      try {
+        await sdk.actions.ready();
+      } catch (error) {
+        console.error('Error calling sdk.actions.ready():', error);
+      }
+    }
+
+    initMiniApp();
+  </script>
+
+  <script src="/static/script.js" defer></script>
 </head>
 <body>
-    <h1>📬 Contact Me</h1>
-    
-    <div class="contact-item"><span class="icon">📍</span>Riverside View, Chestnut Street</div>
-    <div class="contact-item"><span class="icon">📞</span><a href="tel:+27612426569">+27 61 242 6569</a></div>
-    <div class="contact-item"><span class="icon">📧</span><a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></div>
-    <div class="contact-item"><span class="icon">💻</span><a href="https://github.com/Charity2001" target="_blank">My GitHub Profile</a></div>
-    
-    <br><br>
-    <a href="/">← Back to Home</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-mark">TB</span>
+        <div class="brand-copy">
+          <span class="brand-name">Tsatsawane Bombi (Charity)</span>
+          <span class="brand-role">Software Engineering Graduate</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="shell section-grid">
+        <div>
+          <h2>Contact Information</h2>
+          <p>
+            I’m currently looking for Software Engineering internships, graduate programmes and
+            junior developer roles. The fastest way to reach me is via email.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Location:</strong> Johannesburg, South Africa</li>
+            <li><strong>Email:</strong> <a href="mailto:bombitsatsawane@gmail.com">bombitsatsawane@gmail.com</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+27612426569">061 242 6569</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Charity2001" target="_blank" rel="noopener">github.com/Charity2001</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tsatsawane-bombi-8498651a2" target="_blank" rel="noopener">linkedin.com/in/tsatsawane-bombi-8498651a2</a></li>
+          </ul>
+        </div>
+        <div class="contact-cta">
+          <div class="badge-card">
+            <span class="badge-label">Let’s talk</span>
+            <p>Share a brief description of the role or project and I’ll respond as soon as possible.</p>
+            <a class="btn btn-primary" href="mailto:bombitsatsawane@gmail.com">Send an email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <span>© 2026 Tsatsawane Bombi</span>
+      <span>Contact · Open to opportunities</span>
+    </div>
+  </footer>
+
 </body>
 </html>
