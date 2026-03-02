@@ -63,15 +63,16 @@
       <div class="shell hero-grid">
         <div class="hero-copy">
           <p class="hero-kicker">Johannesburg • South Africa</p>
-          <h1>Software Engineering Graduate &amp; Aspiring AI Engineer</h1>
+          <h1>Software Developer &amp; Software Engineering Graduate</h1>
           <p class="hero-subtitle">
-            I design and build reliable backend, AI and data-driven solutions using
-            Java, Python and modern web technologies.
+            I design and build reliable, data‑driven software using
+            Python, Java, SQL, HTML and CSS.
           </p>
 
           <div class="hero-actions">
-            <a href="assets/Tsatsawane_Bombi_updated_Resume.pdf" download class="btn btn-primary">Download CV</a>
-            <a href="assets/Tsatsawane_Bombi_updated_Resume.pdf" target="_blank" class="btn btn-secondary">View CV</a>
+            <a class="btn btn-primary" href="{{ url_for('static', filename='cv/Bombi_Tsatsawane_Resume.pdf') }}" target="_blank" rel="noopener">
+              Download CV
+            </a>
             <a class="btn btn-secondary" href="https://github.com/Charity2001" target="_blank" rel="noopener">
               View GitHub
             </a>
@@ -90,6 +91,15 @@
         </div>
 
         <div class="hero-panel">
+          <figure class="hero-photo-card">
+            <div class="hero-photo-ring">
+              <img src="{{ url_for('static', filename='images/bombi.jpg') }}"
+                   alt="Portrait of Bombi Tsatsawane Charity"
+                   class="hero-photo">
+            </div>
+            <figcaption>Software Developer • Python · Java · SQL · HTML · CSS</figcaption>
+          </figure>
+
           <div class="hero-card">
             <h2>Profile</h2>
             <ul>
