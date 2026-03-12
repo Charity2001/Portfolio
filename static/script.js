@@ -1,17 +1,34 @@
-// Theme handling
 const THEME_KEY = 'portfolio-theme';
+const THEME_DARK = 'dark';
+const THEME_LIGHT = 'light';
 
-function applyStoredTheme() {
-  if (typeof window === 'undefined') return;
+function getSystemTheme() {
+  if (typeof window === 'undefined' || !window.matchMedia) return THEME_LIGHT;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
+}
+
+function getInitialTheme() {
+  if (typeof window === 'undefined') return THEME_LIGHT;
   const stored = localStorage.getItem(THEME_KEY);
-  if (stored === 'dark') {
-    document.body.classList.add('dark-mode');
+  if (stored === THEME_DARK || stored === THEME_LIGHT) return stored;
+  return getSystemTheme();
+}
+
+function applyTheme(theme) {
+  const isDark = theme === THEME_DARK;
+  document.documentElement.classList.toggle('dark-mode', isDark);
+  document.documentElement.dataset.theme = isDark ? THEME_DARK : THEME_LIGHT;
+
+  const themeBtn = document.querySelector('.theme-toggle');
+  if (themeBtn) {
+    themeBtn.setAttribute('aria-pressed', String(isDark));
+    themeBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
   }
 }
 
-function toggleTheme() {
-  const isDark = document.body.classList.toggle('dark-mode');
-  localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+function setStoredTheme(theme) {
+  localStorage.setItem(THEME_KEY, theme);
+  applyTheme(theme);
 }
 
 // Navigation and smooth scrolling
@@ -49,47 +66,18 @@ function setupNav() {
   });
 }
 
-// Theme toggle button
 function setupThemeToggle() {
   const themeBtn = document.querySelector('.theme-toggle');
   if (!themeBtn) return;
 
-  const iconSpan = themeBtn.querySelector('.theme-icon');
-
-  function syncIcon() {
-    const isDark = document.body.classList.contains('dark-mode');
-    if (iconSpan) {
-      iconSpan.textContent = isDark ? '☀️' : '🌙';
-    }
-  }
-
-  syncIcon();
-
   themeBtn.addEventListener('click', () => {
-    toggleTheme();
-    syncIcon();
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    setStoredTheme(isDark ? THEME_LIGHT : THEME_DARK);
   });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  applyStoredTheme();
+  applyTheme(getInitialTheme());
   setupNav();
   setupThemeToggle();
 });
-
-// static/script.js
-
-// Example: Dark mode toggle
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-
-// Example: Welcome alert
-function greetUser() {
-  alert("Hey Bombi! Welcome to my portfolio ✨");
-}
-
-// Run on page load
-window.onload = function () {
-  greetUser();
-};
