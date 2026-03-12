@@ -51,7 +51,19 @@
     initMiniApp();
   </script>
 
-  <script src="/static/script.js" defer></script>
+  <script>
+    (() => {
+      try {
+        const key = 'portfolio-theme';
+        const stored = localStorage.getItem(key);
+        const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dark = stored ? stored === 'dark' : systemDark;
+        document.documentElement.classList.toggle('dark-mode', dark);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch {}
+    })();
+  </script>
+  <script src="../static/script.js" defer></script>
 </head>
 <body>
 

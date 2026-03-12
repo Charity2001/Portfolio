@@ -26,7 +26,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="../public/style.css" media="print">
-  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+  <script>
+    (() => {
+      try {
+        const key = 'portfolio-theme';
+        const stored = localStorage.getItem(key);
+        const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dark = stored ? stored === 'dark' : systemDark;
+        document.documentElement.classList.toggle('dark-mode', dark);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch {}
+    })();
+  </script>
+  <script src="../static/script.js" defer></script>
 </head>
 <body>
   <header class="site-header">

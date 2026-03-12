@@ -13,8 +13,20 @@
   <meta property="og:description" content="Get in touch with Tsatsawane Bombi (Charity) for software engineering opportunities." />
   <meta property="og:url" content="https://portfolio-tau-self-82.vercel.app/contact" />
   
-  <link rel="stylesheet" href="/static/style.css">
-  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+  <link rel="stylesheet" href="../static/style.css">
+  <script>
+    (() => {
+      try {
+        const key = 'portfolio-theme';
+        const stored = localStorage.getItem(key);
+        const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const dark = stored ? stored === 'dark' : systemDark;
+        document.documentElement.classList.toggle('dark-mode', dark);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch {}
+    })();
+  </script>
+  <script src="../static/script.js" defer></script>
 </head>
 <body>
 
